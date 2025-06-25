@@ -1,0 +1,99 @@
+<html>
+<div id="a">    
+<h1>To-do List</h1>    
+<input id="entered">
+<button onclick="add()">Add</button>
+<ul id="listcontainer">
+    <li id="b">hello
+        <button onclick="deleteitem(event)">delete</button>
+    </li>
+</ul>
+</div>
+</html>
+
+<script>
+    var ul = document.getElementById("listcontainer")
+    var ip = document.getElementById("entered")
+    function add() {
+        var listitem = document.createElement("li")
+        listitem.innerHTML = ip.value + "<button onclick='deleteitem(event)'>delete</button>"
+        ul.append(listitem)
+    }
+    function deleteitem(event) {
+        event.target.parentElement.remove()
+    }
+</script>
+
+<style>
+    /* Set background color of whole page */
+    html {
+        background-color: #e0f7fa; /* light aqua shade */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Main container center alignment */
+    #a {
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        max-width: 400px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the input box */
+    #entered {
+        padding: 10px;
+        width: 65%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Style all buttons */
+    button {
+        padding: 10px 15px;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 5px;
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    /* On hover, button turns darker */
+    button:hover {
+        background-color: #218838;
+    }
+
+    /* Remove default list styles */
+    #listcontainer {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px 0 0 0;
+        width: 100%;
+    }
+
+    /* Style each task item */
+    #b, #listcontainer li {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f1f1f1;
+    }
+
+    /* Special style for delete button inside task */
+    #listcontainer li button {
+        background-color: #dc3545;
+    }
+
+    #listcontainer li button:hover {
+        background-color: #c82333;
+    }
+</style>
